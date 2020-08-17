@@ -134,139 +134,151 @@ public class Ipv4 extends JFrame {
 				}
 				
 				
-				int host = Integer.parseInt(hosts_1.getText());
 				int pre = 0;
-			
+				int host = 0;
+				
 				if(hosts_1.getText().isEmpty()) {
 					error = "coloque la cantidad de hosts requeridos";
+				}				
+				else if (!hosts_1.getText().equals("2 RFC3021")) {
+				host = Integer.parseInt(hosts_1.getText());
+					if(host == 0 || host > 2147483646) {
+						error = "coloque un numero de hosts valido";
+					}
+					else if(host == 1 ) {
+						pre = 32;
+						ip.setPre(32);
+					}
+					else if(host == 2 ) {
+						pre = 30;
+						ip.setPre(30);
+					}
+					else if(host < 7 ) {
+						pre = 29;
+						ip.setPre(29);
+					}
+					else if(host < 15 ) {
+						pre = 28;
+						ip.setPre(28);
+					}
+					else if(host < 31 ) {
+						pre = 27;
+						ip.setPre(27);
+					}
+					else if(host < 63 ) {
+						pre = 26;
+						ip.setPre(26);
+					}
+					else if(host < 127 ) {
+						pre = 25;
+						ip.setPre(25);
+					}
+					else if(host < 255 ) {
+						pre = 24;
+						ip.setPre(24);
+					}
+					else if(host < 511 ) {
+						pre = 23;
+						ip.setPre(23);
+					}
+					else if(host < 1023 ) {
+						pre = 22;
+						ip.setPre(22);
+					}
+					else if(host < 2047 ) {
+						pre = 21;
+						ip.setPre(21);
+					}
+					else if(host < 4095 ) {
+						pre = 20;
+						ip.setPre(20);
+					}
+					else if(host < 8191 ) {
+						pre = 19;
+						ip.setPre(19);
+					}
+					else if(host < 16383 ) {
+						pre = 18;
+						ip.setPre(18);
+					}
+					else if(host < 32767 ) {
+						pre = 17;
+						ip.setPre(17);
+					}
+					else if(host < 65535 ) {
+						pre = 16;
+						ip.setPre(16);
+					}
+					else if(host < 131071 ) {
+						pre = 15;
+						ip.setPre(15);
+					}
+					else if(host < 26243 ) {
+						pre = 14;
+						ip.setPre(14);
+					}
+					else if(host < 524287 ) {
+						pre = 13;
+						ip.setPre(13);
+					}
+					else if(host < 1048575 ) {
+						pre = 12;
+						ip.setPre(12);
+					}
+					else if(host < 2097151 ) {
+						pre = 11;
+						ip.setPre(11);
+					}
+					else if(host < 4194303 ) {
+						pre = 10;
+						ip.setPre(10);
+					}
+					else if(host < 8388607 ) {
+						pre = 9;
+						ip.setPre(9);
+					}
+					else if(host < 16777215 ) {
+						pre = 8;
+						ip.setPre(8);
+					}
+					else if(host < 33554431 ) {
+						pre = 7;
+						ip.setPre(7);
+					}
+					else if(host < 67108863 ) {
+						pre = 6;
+						ip.setPre(6);
+					}
+					else if(host < 134217727 ) {
+						pre = 5;
+						ip.setPre(5);
+					}
+					else if(host < 268435455 ) {
+						pre = 4;
+						ip.setPre(4);
+					}
+					else if(host < 536870911 ) {
+						pre = 3;
+						ip.setPre(3);
+					}
+					else if(host < 107374823 ) {
+						pre = 2;
+						ip.setPre(2);
+					}
+					else if(host < 2147483647 ) {
+						pre = 1;
+						ip.setPre(1);
+					}
 				}
-				else if(host == 0 || host > 2147483646) {
-					error = "coloque un numero de hosts valido";
+				else if(hosts_1.getText().equals("2 RFC3021") ) {
+					pre = 31;
+					ip.setPre(31);
 				}
-				else if(host == 1 ) {
-					pre = 32;
-					ip.setPre(32);
-				}
-				else if(host == 2 ) {
-					pre = 30;
-					ip.setPre(30);
-				}
-				else if(host < 7 ) {
-					pre = 29;
-					ip.setPre(29);
-				}
-				else if(host < 15 ) {
-					pre = 28;
-					ip.setPre(28);
-				}
-				else if(host < 31 ) {
-					pre = 27;
-					ip.setPre(27);
-				}
-				else if(host < 63 ) {
-					pre = 26;
-					ip.setPre(26);
-				}
-				else if(host < 127 ) {
-					pre = 25;
-					ip.setPre(25);
-				}
-				else if(host < 255 ) {
-					pre = 24;
-					ip.setPre(24);
-				}
-				else if(host < 511 ) {
-					pre = 23;
-					ip.setPre(23);
-				}
-				else if(host < 1023 ) {
-					pre = 22;
-					ip.setPre(22);
-				}
-				else if(host < 2047 ) {
-					pre = 21;
-					ip.setPre(21);
-				}
-				else if(host < 4095 ) {
-					pre = 20;
-					ip.setPre(20);
-				}
-				else if(host < 8191 ) {
-					pre = 19;
-					ip.setPre(19);
-				}
-				else if(host < 16383 ) {
-					pre = 18;
-					ip.setPre(18);
-				}
-				else if(host < 32767 ) {
-					pre = 17;
-					ip.setPre(17);
-				}
-				else if(host < 65535 ) {
-					pre = 16;
-					ip.setPre(16);
-				}
-				else if(host < 131071 ) {
-					pre = 15;
-					ip.setPre(15);
-				}
-				else if(host < 26243 ) {
-					pre = 14;
-					ip.setPre(14);
-				}
-				else if(host < 524287 ) {
-					pre = 13;
-					ip.setPre(13);
-				}
-				else if(host < 1048575 ) {
-					pre = 12;
-					ip.setPre(12);
-				}
-				else if(host < 2097151 ) {
-					pre = 11;
-					ip.setPre(11);
-				}
-				else if(host < 4194303 ) {
-					pre = 10;
-					ip.setPre(10);
-				}
-				else if(host < 8388607 ) {
-					pre = 9;
-					ip.setPre(9);
-				}
-				else if(host < 16777215 ) {
-					pre = 8;
-					ip.setPre(8);
-				}
-				else if(host < 33554431 ) {
-					pre = 7;
-					ip.setPre(7);
-				}
-				else if(host < 67108863 ) {
-					pre = 6;
-					ip.setPre(6);
-				}
-				else if(host < 134217727 ) {
-					pre = 5;
-					ip.setPre(5);
-				}
-				else if(host < 268435455 ) {
-					pre = 4;
-					ip.setPre(4);
-				}
-				else if(host < 536870911 ) {
-					pre = 3;
-					ip.setPre(3);
-				}
-				else if(host < 107374823 ) {
-					pre = 2;
-					ip.setPre(2);
-				}
-				else if(host < 2147483647 ) {
-					pre = 1;
-					ip.setPre(1);
-				}
+				
+				
+				
+				
+				
 				
 				
 			
