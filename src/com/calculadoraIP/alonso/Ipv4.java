@@ -133,24 +133,7 @@ public class Ipv4 extends JFrame {
 					ip.setOct4(oct4);
 				}
 				
-				/*
-				if (!prefijo.getText().isEmpty()) {
-					
-					
-					int pre = Integer.parseInt(prefijo.getText());
-					
-											
-					ip.setPre(pre);
-					
-					
-										
-				}
-				else if (prefijo.getText().isEmpty()) {
-					error = "Mascara de subred no introducida";
-					lblError.setForeground(new Color(0, 0, 255));
-				}
 				
-				*/
 				int host = Integer.parseInt(hosts_1.getText());
 				int pre = 0;
 			
