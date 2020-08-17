@@ -32,7 +32,6 @@ public class Ipv4 extends JFrame {
 	private JTextField octeto3;
 	private JTextField octeto4;
 	private JLabel lblMascaraDeSubred;
-	private JTextField prefijo;
 	private JLabel lblTipoRed;
 	private JLabel lblClase;
 	private JButton btnNewButton;
@@ -47,9 +46,10 @@ public class Ipv4 extends JFrame {
 	private JLabel lblRango;
 	private JLabel rang;
 	private JLabel lblHosts;
-	private JLabel hosts_1;
 	private JLabel lblRedes;
 	private JLabel redes_1;
+	private JLabel prefijo;
+	private JTextField hosts_1;
 	
 	/**
 	 * Create the frame.
@@ -96,12 +96,6 @@ public class Ipv4 extends JFrame {
 		lblMascaraDeSubred.setBounds(10, 92, 139, 23);
 		contentPane.add(lblMascaraDeSubred);
 		
-		prefijo = new JTextField();
-		prefijo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		prefijo.setColumns(10);
-		prefijo.setBounds(171, 89, 58, 29);
-		contentPane.add(prefijo);
-		
 		lblTipoRed = new JLabel("Tipo de Red");
 		lblTipoRed.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTipoRed.setBounds(10, 168, 111, 29);
@@ -139,7 +133,7 @@ public class Ipv4 extends JFrame {
 					ip.setOct4(oct4);
 				}
 				
-				
+				/*
 				if (!prefijo.getText().isEmpty()) {
 					
 					
@@ -156,7 +150,140 @@ public class Ipv4 extends JFrame {
 					lblError.setForeground(new Color(0, 0, 255));
 				}
 				
-				
+				*/
+				int host = Integer.parseInt(hosts_1.getText());
+				int pre = 0;
+			
+				if(hosts_1.getText().isEmpty()) {
+					error = "coloque la cantidad de hosts requeridos";
+				}
+				else if(host == 0 || host > 2147483646) {
+					error = "coloque un numero de hosts valido";
+				}
+				else if(host == 1 ) {
+					pre = 32;
+					ip.setPre(32);
+				}
+				else if(host == 2 ) {
+					pre = 30;
+					ip.setPre(30);
+				}
+				else if(host < 7 ) {
+					pre = 29;
+					ip.setPre(29);
+				}
+				else if(host < 15 ) {
+					pre = 28;
+					ip.setPre(28);
+				}
+				else if(host < 31 ) {
+					pre = 27;
+					ip.setPre(27);
+				}
+				else if(host < 63 ) {
+					pre = 26;
+					ip.setPre(26);
+				}
+				else if(host < 127 ) {
+					pre = 25;
+					ip.setPre(25);
+				}
+				else if(host < 255 ) {
+					pre = 24;
+					ip.setPre(24);
+				}
+				else if(host < 511 ) {
+					pre = 23;
+					ip.setPre(23);
+				}
+				else if(host < 1023 ) {
+					pre = 22;
+					ip.setPre(22);
+				}
+				else if(host < 2047 ) {
+					pre = 21;
+					ip.setPre(21);
+				}
+				else if(host < 4095 ) {
+					pre = 20;
+					ip.setPre(20);
+				}
+				else if(host < 8191 ) {
+					pre = 19;
+					ip.setPre(19);
+				}
+				else if(host < 16383 ) {
+					pre = 18;
+					ip.setPre(18);
+				}
+				else if(host < 32767 ) {
+					pre = 17;
+					ip.setPre(17);
+				}
+				else if(host < 65535 ) {
+					pre = 16;
+					ip.setPre(16);
+				}
+				else if(host < 131071 ) {
+					pre = 15;
+					ip.setPre(15);
+				}
+				else if(host < 26243 ) {
+					pre = 14;
+					ip.setPre(14);
+				}
+				else if(host < 524287 ) {
+					pre = 13;
+					ip.setPre(13);
+				}
+				else if(host < 1048575 ) {
+					pre = 12;
+					ip.setPre(12);
+				}
+				else if(host < 2097151 ) {
+					pre = 11;
+					ip.setPre(11);
+				}
+				else if(host < 4194303 ) {
+					pre = 10;
+					ip.setPre(10);
+				}
+				else if(host < 8388607 ) {
+					pre = 9;
+					ip.setPre(9);
+				}
+				else if(host < 16777215 ) {
+					pre = 8;
+					ip.setPre(8);
+				}
+				else if(host < 33554431 ) {
+					pre = 7;
+					ip.setPre(7);
+				}
+				else if(host < 67108863 ) {
+					pre = 6;
+					ip.setPre(6);
+				}
+				else if(host < 134217727 ) {
+					pre = 5;
+					ip.setPre(5);
+				}
+				else if(host < 268435455 ) {
+					pre = 4;
+					ip.setPre(4);
+				}
+				else if(host < 536870911 ) {
+					pre = 3;
+					ip.setPre(3);
+				}
+				else if(host < 107374823 ) {
+					pre = 2;
+					ip.setPre(2);
+				}
+				else if(host < 2147483647 ) {
+					pre = 1;
+					ip.setPre(1);
+				}
 				
 				
 			
@@ -170,8 +297,8 @@ public class Ipv4 extends JFrame {
 				redD.setText(tipoIp.get(3).toString());
 				BroadD.setText(tipoIp.get(5).toString());
 				rang.setText(tipoIp.get(6).toString());
-				hosts_1.setText(tipoIp.get(7).toString());
 				redes_1.setText(tipoIp.get(8).toString());
+				prefijo.setText(Integer.toString(pre));
 				
 				String er =tipoIp.get(2).toString();
 				if (!er.isEmpty()) {
@@ -248,11 +375,6 @@ public class Ipv4 extends JFrame {
 		lblHosts.setBounds(39, 393, 111, 29);
 		contentPane.add(lblHosts);
 		
-		hosts_1 = new JLabel("");
-		hosts_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		hosts_1.setBounds(92, 393, 94, 23);
-		contentPane.add(hosts_1);
-		
 		lblRedes = new JLabel("Redes");
 		lblRedes.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblRedes.setBounds(307, 393, 111, 29);
@@ -262,6 +384,21 @@ public class Ipv4 extends JFrame {
 		redes_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		redes_1.setBounds(360, 393, 94, 23);
 		contentPane.add(redes_1);
+		
+		JLabel label = new JLabel("New label");
+		label.setBounds(158, 108, 28, 0);
+		contentPane.add(label);
+		
+		prefijo = new JLabel("");
+		prefijo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		prefijo.setBounds(171, 92, 46, 25);
+		contentPane.add(prefijo);
+		
+		hosts_1 = new JTextField();
+		hosts_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		hosts_1.setBounds(100, 393, 169, 26);
+		contentPane.add(hosts_1);
+		hosts_1.setColumns(10);
 		
 		setVisible(true);
 	}
