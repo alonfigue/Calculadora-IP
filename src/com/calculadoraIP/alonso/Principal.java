@@ -51,7 +51,7 @@ public class Principal extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//new Ipv6();
+				new Ipv6();
 			}
 		});
 		btnNewButton_1.setBackground(new Color(106, 90, 205));

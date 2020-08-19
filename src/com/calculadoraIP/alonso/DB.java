@@ -102,21 +102,7 @@ public class DB{
          } 
      
      
-     //Metodo para obtener cocodrilos
-     public ResultSet dbStatementt(String query,int id) {
-    	 
-     try {
-    	 
-		 this.pstmt = this.conn.prepareStatement(query);
-  		 //this.pstmt.setInt(1, (int)id);
-  		 
-      this.rs = this.stmt.executeQuery(query);
      
-    } catch (SQLException e) {
-        e.printStackTrace();
-        }
-     return rs;
-     } 
      
      
      
