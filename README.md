@@ -1,4 +1,4 @@
-Calculadora IP realizada en Java con propósitos de formación profesional (Universidad Rafael Urdaneta)
+Calculadora IP desarrollada en Java con propósito de formación profesional (Universidad Rafael Urdaneta)
 
 -Cátedra: Programación Orientada a Objetos
 
